@@ -55,3 +55,6 @@ Anfragen an jeden weiteren Service weiterleitet.
  
 Alle anderen Services sind über den Gateway Service versteckt, sodass der Gateway Service für die Klienten  
 zum Access-Punkt der Infrastruktur wird.
+
+Mithilfe des Netflix Eureka Projektes, wird durch die @EnableEurekaServer und @EnableEurekaClient  
+Annotation die Registrierung und Discovery automatisiert.
