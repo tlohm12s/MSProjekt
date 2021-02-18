@@ -1,3 +1,5 @@
+
+
 server:
   port: 8761
 
@@ -9,3 +11,6 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+spring:
+  application:
+    name: Registry/Discovery Service

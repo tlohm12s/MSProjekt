@@ -1,0 +1,155 @@
+{
+	"variables": [],
+	"info": {
+		"name": "MicroServices Projekt",
+		"_postman_id": "a1025571-b1b2-5a66-b69c-954c19a00746",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Client-Side (Gateway)",
+			"description": "",
+			"item": [
+				{
+					"name": "Create Service",
+					"request": {
+						"url": "http://localhost:8081/start/HELLO_WORLD_SERVICE",
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Stop Service",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8081/stop/:instanceID",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"stop",
+								":instanceID"
+							],
+							"query": [],
+							"variable": [
+								{
+									"key": "instanceID",
+									"value": "da40c553-62a2-4347-a7e9-84a8d4cb78b5"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Request for generated Instance",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8081/service/:instanceID/helloworld",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"service",
+								":instanceID",
+								"helloworld"
+							],
+							"query": [],
+							"variable": [
+								{
+									"key": "instanceID",
+									"value": "da40c553-62a2-4347-a7e9-84a8d4cb78b5"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Service Side",
+			"description": "",
+			"item": [
+				{
+					"name": "Manual Stop Service",
+					"request": {
+						"url": "http://localhost:12345/actuator/shutdown",
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Get Host",
+					"request": {
+						"url": {
+							"raw": "http://localhost:8761/service/:instanceID",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8761",
+							"path": [
+								"service",
+								":instanceID"
+							],
+							"query": [],
+							"variable": [
+								{
+									"key": "instanceID",
+									"value": "da40c553-62a2-4347-a7e9-84a8d4cb78b5"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Service (ServiceFactory)",
+					"request": {
+						"url": "http://localhost:8080/service/HELLO_WORLD_SERVICE",
+						"method": "POST",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Helloworld",
+					"request": {
+						"url": "http://localhost:60906/helloworld",
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
