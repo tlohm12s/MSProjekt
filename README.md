@@ -15,7 +15,7 @@ Die Service Infrastruktur besteht aus folgenden Services:
 ## API:  
 
 * Discovery / Register Service (Port 8761):  
-_Läuft über Spring Cloud Netflix – Eureka. Zusätzliche Api, welche Eureka anbietet findet man [hier](https://github.com/Netflix/eureka/wiki/Eureka-REST-operations) zu finden._  
+_Läuft über Spring Cloud Netflix – Eureka. Zusätzliche Api, welche Eureka anbietet findet man [hier](https://github.com/Netflix/eureka/wiki/Eureka-REST-operations) zu finden. Bei dem starten eines Service, registriert sich dieser automatisch bei diesem Service._  
 
 | Verb | Pfad | Status | Aktion | Beispiel |
 | ------- | ---- | ----- | ------ | ------ |
@@ -47,7 +47,7 @@ _Läuft auf einem freien Port, begrüßt die Welt und gibt seine instance id wie
 
 _Weiterer Hinweis: Ein 404 Status wird wiedergegeben, falls ein Service mit der instanceID nicht existiert oder der angegebene Service Typ nicht existiert._
 
-##Service Infrastruktur
+## Service Infrastruktur  
 Hier wird das Zusammenspiel unterschiedlicher Service Instanzen verwendet, um für einen Klienten bei Bedarf  
 einen Service zu erstellen, worauf er dann zugreifen kann, ohne wissen zu müssen, wo dieser wirklich liegt und  
 ihn nachher wieder beendet. Dabei muss dem Klienten nur die REST-Api des Gateway Services interessieren, da dieser  
