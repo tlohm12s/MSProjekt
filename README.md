@@ -22,7 +22,7 @@ _Läuft über Spring Cloud Netflix – Eureka. Zusätzliche Api, welche Eureka a
 |  GET   | /service/{instanceID}  | OK (200), NOT FOUND (404) | Gibt den Host (Format http://localhost:1234/) zu der jeweiligen instanceID wieder. | /service/123abc |
 
 * Gateway Service (Port 8081):   
-_Für die Weiterleitung an und das stoppen von Services zuständig_
+_Zugangspunkt für Klienten, leitet Anfragen an die unterschiedlichen Services (generierten Instanzen, Register/Discovery, Service Factory) weiter_
 
 | Verb | Pfad | Status | Aktion | Beispiel |
 | ---- | ---- | ------ | ------ | -------- |
@@ -38,7 +38,7 @@ _Für das starten von dynamisch generierten Services zuständig_
 |  POST   | /service/{type}  | OK (200), NOT FOUND (404) | Startet einen Service mit dem gegebenen Service Typs (Derzeitig Möglich: HELLO_WORLD_SERVICE) und gibt ein JSONObject mit der instanceID wieder. | /service/HELLO_WORLD_SERVICE |
 
 * Dynamisch generierter Service [Hello world Service] (Port dynamisch):  
-_Wählt einen freien Port aus:_
+_Läuft auf einem freien Port, begrüßt die Welt und gibt seine instance id wieder:_
 
 | Verb | Pfad | Status | Aktion |
 | ------- | ---- | ----- | ------ |
@@ -54,7 +54,10 @@ ihn nachher wieder beendet. Dabei muss dem Klienten nur die REST-Api des Gateway
 Anfragen an jeden weiteren Service weiterleitet.
  
 Alle anderen Services sind über den Gateway Service versteckt, sodass der Gateway Service für die Klienten  
-zum Access-Punkt der Infrastruktur wird.
+zum Access-Punkt der Infrastruktur wird.  
+  
+Jede Aufgabe des Systems wird in einen Service unterteilt, die ihren eigene API (Schnittstelle) anbietet, damit diese untereinander kommunizieren können (orientiert sich nach REST).  
+Somit entesteht eine Microservice Struktur.
 
 Mithilfe des Netflix Eureka Projektes, wird durch die @EnableEurekaServer und @EnableEurekaClient  
 Annotation die Registrierung und Discovery automatisiert.
