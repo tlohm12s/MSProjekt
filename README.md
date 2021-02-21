@@ -26,9 +26,9 @@ _Zugangspunkt für Klienten, leitet Anfragen an die unterschiedlichen Services (
 
 | Verb | Pfad | Status | Aktion | Beispiel |
 | ---- | ---- | ------ | ------ | -------- |
-|  GET     | /stop/{instanceID}  | OK (200), NOT FOUND (404) | Stoppt den Service mit der gegebenen instanceID. | /service/123abc/stop |
+|  GET     | /stop/{instanceID}  | OK (200), NOT FOUND (404) | Stoppt den Service mit der gegebenen instanceID. | /stop/123abc |
 |  GET    | /service/{instanceID}/**  | * | Leitet die Anfrage (wo ** ist) an den jeweiligen Service mit der Instance ID weiter | /service/123abc/helloworld (Falls vom Typ HELLO_WORLD_SERVICE) |
-|  POST   | /start/{type}  | OK (200), NOT FOUND (404) | Startet einen Service mit dem gegebenen Service Typs (Derzeitig Möglich: HELLO_WORLD_SERVICE) und gibt ein JSONObject mit der instanceID wieder. | /service/start/HELLO_WORLD_SERVICE |
+|  POST   | /start/{type}  | OK (200), NOT FOUND (404) | Startet einen Service mit dem gegebenen Service Typs (Derzeitig Möglich: HELLO_WORLD_SERVICE) und gibt ein JSONObject mit der instanceID wieder. | /start/HELLO_WORLD_SERVICE |
 
 * Service Factory Service (Port 8080):   
 _Für das starten von dynamisch generierten Services zuständig_
