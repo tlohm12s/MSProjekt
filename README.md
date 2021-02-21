@@ -50,8 +50,7 @@ _Weiterer Hinweis: Ein 404 Status wird wiedergegeben, falls ein Service mit der 
 ## Service Infrastruktur  
 Hier wird das Zusammenspiel unterschiedlicher Service Instanzen verwendet, um für einen Klienten bei Bedarf  
 einen Service zu erstellen, worauf er dann zugreifen kann, ohne wissen zu müssen, wo dieser wirklich liegt und  
-ihn nachher wieder beendet. Dabei muss dem Klienten nur die REST-Api des Gateway Services interessieren, da dieser  
-Anfragen an jeden weiteren Service weiterleitet.
+ihn nachher wieder beendet. Dabei muss dem Klienten nur die REST-Api des Gateway Services interessieren, da dieser Anfragen an jeden weiteren Service weiterleitet.
  
 Alle anderen Services sind über den Gateway Service versteckt, sodass der Gateway Service für die Klienten  
 zum Access-Punkt der Infrastruktur wird.  
@@ -60,4 +59,5 @@ Jede Aufgabe des Systems wird in einen Service unterteilt, die ihren eigene API 
 Somit entesteht eine Microservice Struktur.
 
 Mithilfe des Netflix Eureka Projektes, wird durch die @EnableEurekaServer und @EnableEurekaClient  
-Annotation die Registrierung und Discovery automatisiert.
+Annotation die Registrierung und Discovery automatisiert. Hierbei melden sich Clients, versehrt mit dem @EnableEurekaClient Annotation automatisch, bei dem  
+Eureka Server an.
